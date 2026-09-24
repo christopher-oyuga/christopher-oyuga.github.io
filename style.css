@@ -367,8 +367,8 @@ nav .right a span{
 }
 
 .ptf-btn {
-    width: 100px;
-    height: 28px;
+    width: 90px;
+    height: 22px;
     font-size: 10px;
 }
 
@@ -478,38 +478,39 @@ nav .right a span{
     transform: scale(1.2);
 }
 
-
 /* ==============================
-   DOCUMENT LINK
+   DOCUMENT LINK / TOGGLE
    ============================== */
 
 .doc-link {
     text-align: center;
     margin-top: 2rem;
-    font-family: 'Pristina';
+    font-family: 'Pristina', cursive;
     font-weight: 500;
     font-size: 20px;
     letter-spacing: 2px;
 }
 
 .doc-link span {
-    font-family: 'Nunito';
+    font-family: 'Nunito', sans-serif;
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 3px;
 }
 
-/* Icon */
+/* Toggle icon */
 .doc-link i {
+    display: inline-block;
     color: #007bff;
     margin-left: 8px;
     cursor: pointer;
-    display: inline-block;
+    font-size: 20px;
+
     animation: jump 1s infinite;
     transition: transform 0.3s ease;
 }
 
-/* Rotate on hover */
+/* Stop animation + rotate when hovering */
 .doc-link i:hover {
     animation: none;
     transform: rotate(180deg);
@@ -536,28 +537,43 @@ nav .right a span{
    ============================== */
 
 .doc-container {
-    display: none;
-    margin-top: 20px;
+    width: 100%;
+    max-width: 1200px;
 
-    grid-template-columns: repeat(5, 1fr);
+    margin: 25px auto 0;
+    padding: 10px;
+
+    display: none;
+
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 15px;
 
     opacity: 0;
-    transition: opacity 0.5s ease-in;
+    transform: translateY(-10px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
 }
 
+/* Visible state */
 .doc-container.show {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
     opacity: 1;
+    transform: translateY(0);
 }
 
 
 /* ==============================
-   DOCUMENT CARDS
+   DOCUMENT CARD
    ============================== */
 
 .doc-card {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+
     background: #fff;
     border: 2px solid #007bff;
     border-radius: 8px;
@@ -569,72 +585,140 @@ nav .right a span{
     text-align: center;
     cursor: pointer;
 
-    transition: 0.2s ease;
-
-    position: relative;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .doc-card:hover {
     background: #007bff;
     color: white;
-    transform: scale(1.03);
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.25);
 }
 
 
-/* Title bar */
-.doc-link i {
+/* ==============================
+   DOCUMENT TITLE
+   ============================== */
+
+.doc-card-title {
     background: #007bff;
     color: white;
-    text-align: center;
+
+    padding: 8px;
 
     font-size: 14px;
     font-weight: bold;
 
-    padding: 6px;
+    min-height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
-/* Preview */
+/* ==============================
+   DOCUMENT PREVIEW
+   ============================== */
+
 .doc-preview {
-    height: 120px;
-    overflow: hidden;
-}
+    position: relative;
 
-.doc-preview iframe {
     width: 100%;
-    height: 100%;
+    height: 180px;
+
+    overflow: hidden;
+
+    background: #f5f5f5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-
-/* Overlay */
 .doc-overlay {
     position: absolute;
-
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
 
     background: linear-gradient(
         to top,
-        rgba(0, 0, 0, 0.8),
-        rgba(0, 0, 0, 0)
+        rgba(0, 0, 0, 0.85),
+        rgba(0, 0, 0, 0.05)
     );
 
     color: #efef3e;
-
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
+    text-align: center;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    /* IMPORTANT */
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.doc-card:hover .doc-overlay {
+    opacity: 1;
+}
+
+.doc-card {
+    cursor: pointer;
+}
+
+/* Make the whole document card clickable */
+.doc-card {
+    cursor: pointer;
+}
+
+/* Prevent iframe from stealing the card click */
+.doc-preview iframe {
+    pointer-events: none;
+}
+
+
+/* ==============================
+   OVERLAY
+   ============================== */
+
+.doc-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.85),
+        rgba(0, 0, 0, 0.05)
+    );
+
+    color: #efef3e;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
     opacity: 0;
 
     transition: opacity 0.3s ease;
 
-    pointer-events: auto;
+    pointer-events: none;
 }
 
 .doc-card:hover .doc-overlay {
@@ -643,24 +727,33 @@ nav .right a span{
 
 
 /* ==============================
-   RESPONSIVE DOCUMENTS
+   DESKTOP
    ============================== */
 
 @media (max-width: 1200px) {
     .doc-container.show {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-@media (max-width: 992px) {
-    .doc-container.show {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
 
 
 /* ==============================
-   TABLETS
+   TABLET
+   ============================== */
+
+@media (max-width: 992px) {
+    .doc-container.show {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .doc-preview {
+        height: 170px;
+    }
+}
+
+
+/* ==============================
+   MOBILE / TABLET
    ============================== */
 
 @media (max-width: 768px) {
@@ -685,20 +778,26 @@ nav .right a span{
         gap: 6px;
     }
 
-  .skills-section .cells .cell span {
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0;
-}
-
+    .skills-section .cells .cell span {
+        font-size: 10px;
+        font-weight: 400;
+        letter-spacing: 0;
+    }
 
     .skills-section .cells .cell img {
         width: 22px;
         height: 22px;
     }
 
+
+    /* Documents */
     .doc-container.show {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .doc-preview {
+        height: 160px;
     }
 
     .doc-overlay {
@@ -706,8 +805,9 @@ nav .right a span{
     }
 }
 
+
 /* ==============================
-   RESPONSIVE SKILLS - 740px
+   SMALL MOBILE
    ============================== */
 
 @media (max-width: 740px) {
@@ -721,7 +821,6 @@ nav .right a span{
         letter-spacing: 2px;
     }
 
-    /* Skills description / paragraph */
     .skills-section .text {
         font-size: 12px;
         line-height: 1.5;
@@ -734,14 +833,12 @@ nav .right a span{
         line-height: 1.5;
     }
 
-    /* Three cells per row */
     .skills-section .cells {
         grid-template-columns: repeat(3, 1fr);
         gap: 8px;
         width: 100%;
     }
 
-    /* Cell */
     .skills-section .cells .cell {
         width: 100%;
         height: 42px;
@@ -749,7 +846,6 @@ nav .right a span{
         gap: 5px;
     }
 
-    /* Text inside cell */
     .skills-section .cells .cell span {
         font-size: 9px;
         font-weight: 400;
@@ -758,14 +854,11 @@ nav .right a span{
         white-space: nowrap;
     }
 
-    /* Icons */
     .skills-section .cells .cell img {
-      font-size: 12px;
         width: 20px;
         height: 20px;
     }
 
-    /* Document text */
     .doc-link {
         font-size: 17px;
     }
@@ -774,8 +867,16 @@ nav .right a span{
         font-size: 15px;
         letter-spacing: 2px;
     }
-}
 
+    .doc-container.show {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .doc-preview {
+        height: 220px;
+    }
+}
 
 /* ==============================
    PHONES
@@ -1029,20 +1130,27 @@ display: flex;
   right: 10px;
 }
 
-
- /* ==============================
-    RESPONSIVE PROJECT TEXT - 740px
-    ============================== */
+/* ==============================
+   RESPONSIVE PROJECT - SMALL SCREENS
+   Keep original fonts
+   ============================== */
 
 @media (max-width: 740px) {
 
+    .project-section {
+        padding: 0 20px;
+    }
+
+    /* Project heading */
     .project-section h2 {
+        font-family: 'Quicksand', sans-serif;
         font-size: 28px;
         letter-spacing: 2px;
     }
 
-    /* Project description above the cards */
+    /* Project description */
     .project-section .text {
+        font-family: inherit;
         font-size: 12px;
         line-height: 1.5;
         padding-top: 10px;
@@ -1050,51 +1158,50 @@ display: flex;
     }
 
     .project-section .text p {
-        font-size: 12px;
+        font-family: inherit;
+        font-size: 10px;
         line-height: 1.5;
     }
 
-    /* Text inside project overlay */
+
+    /* ==============================
+       PROJECT OVERLAY
+       ============================== */
+
+    .Portfolio-layer {
+        padding: 0 1.5rem;
+    }
+
+
+    /* Quicksand stays Quicksand */
     .Portfolio-layer h4 {
-        font-size: 1.1rem;
+        font-family: 'Quicksand', sans-serif;
+        font-size: 1rem;
     }
 
+
+    /* Brush Script stays Brush Script */
     .Portfolio-layer h4 span {
-        font-size: 1.2rem;
+        font-family: 'Brush Script MT', cursive;
+        font-size: 1rem;
     }
 
+
+    /* Viner Hand ITC stays Viner Hand ITC */
     .Portfolio-layer p {
+        font-family: 'Viner Hand ITC', cursive;
         font-size: 10px;
         font-weight: 500;
         letter-spacing: 1px;
         line-height: 1.4;
     }
 
+
     /* Project icon */
     .Portfolio-layer i {
         font-size: 1.1rem;
     }
 }
-
-/* Small screens: stack videos vertically */
-@media (max-width: 768px) {
-  .video-container {
-    flex-direction: column;  /* stack vertically */
-    overflow-x: hidden;      /* disable horizontal scroll */
-    overflow-y: auto;        /* vertical scroll */
-    max-height: 70vh;
-  }
-
-  .video-container video {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .arrow {
-    display: none;  /* hide arrows on small screens */
-  }
-}
-
 
 
 /* SECTION 4: Testimony */

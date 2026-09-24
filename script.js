@@ -68,34 +68,72 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(typeEffect, isDeleting ? 80 : speed);
   }
   typeEffect();
+// ==============================
+// DOCUMENTS
+// ==============================
 
-  // ==============================
-  // DOCS TOGGLE
-  // ==============================
-  const docToggleBtn = document.getElementById("docToggle");
-  const docContainer = document.getElementById("docContainer");
+// DOCUMENT TOGGLE
+const docToggleBtn = document.getElementById("docToggle");
+const docContainer = document.getElementById("docContainer");
 
-  if (docToggleBtn && docContainer) {
-    docToggleBtn.addEventListener("click", () => {
-      console.log("Toggle clicked ✅");
-      docContainer.classList.toggle("show");
+console.log("Toggle button:", docToggleBtn);
+console.log("Document container:", docContainer);
+
+if (docToggleBtn && docContainer) {
+
+    docToggleBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const isOpen = docContainer.classList.toggle("show");
+
+        // Rotate icon
+        if (isOpen) {
+            docToggleBtn.style.transform = "rotate(180deg)";
+            docToggleBtn.classList.add("active");
+        } else {
+            docToggleBtn.style.transform = "rotate(0deg)";
+            docToggleBtn.classList.remove("active");
+        }
+
+        console.log(
+            isOpen
+                ? "Documents opened ✅"
+                : "Documents closed ✅"
+        );
     });
-  }
 
-  // ==============================
-  // DOCS CARD OPEN
-  // ==============================
-  const docCards = document.querySelectorAll(".doc-card");
-  docCards.forEach(card => {
+} else {
+    console.error("❌ docToggle or docContainer not found!");
+}
+
+
+// ==============================
+// OPEN DOCUMENT
+// ==============================
+
+const docCards = document.querySelectorAll(".doc-card");
+
+console.log("Documents found:", docCards.length);
+
+docCards.forEach((card) => {
+
     card.addEventListener("click", () => {
-      const docPath = card.getAttribute("data-doc");
-      console.log("Card clicked:", docPath);
 
-      if (docPath) {
-        window.open(docPath, "_blank", "noopener,noreferrer");
-      }
+        const docPath = card.getAttribute("data-doc");
+
+        console.log("Opening document:", docPath);
+
+        if (!docPath) {
+            console.error("❌ No data-doc found on this card!");
+            return;
+        }
+
+        window.open(docPath, "_blank");
     });
-  });
+
+});
+
 
   // ==============================
 // PTf BUTTON
