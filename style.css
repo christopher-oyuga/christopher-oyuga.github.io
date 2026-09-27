@@ -859,24 +859,7 @@ nav .right a span{
         height: 20px;
     }
 
-    .doc-link {
-        font-size: 17px;
-    }
-
-    .doc-link span {
-        font-size: 15px;
-        letter-spacing: 2px;
-    }
-
-    .doc-container.show {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    .doc-preview {
-        height: 220px;
-    }
-}
+  
 
 /* ==============================
    PHONES

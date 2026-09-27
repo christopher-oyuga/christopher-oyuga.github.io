@@ -68,11 +68,12 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(typeEffect, isDeleting ? 80 : speed);
   }
   typeEffect();
+
+
 // ==============================
 // DOCUMENTS
 // ==============================
 
-// DOCUMENT TOGGLE
 const docToggleBtn = document.getElementById("docToggle");
 const docContainer = document.getElementById("docContainer");
 
@@ -82,34 +83,38 @@ console.log("Document container:", docContainer);
 if (docToggleBtn && docContainer) {
 
     docToggleBtn.addEventListener("click", function (event) {
+
         event.preventDefault();
         event.stopPropagation();
 
         const isOpen = docContainer.classList.toggle("show");
 
-        // Rotate icon
         if (isOpen) {
+
             docToggleBtn.style.transform = "rotate(180deg)";
             docToggleBtn.classList.add("active");
+
+            console.log("Documents opened ✅");
+
         } else {
+
             docToggleBtn.style.transform = "rotate(0deg)";
             docToggleBtn.classList.remove("active");
+
+            console.log("Documents closed ✅");
         }
 
-        console.log(
-            isOpen
-                ? "Documents opened ✅"
-                : "Documents closed ✅"
-        );
     });
 
 } else {
+
     console.error("❌ docToggle or docContainer not found!");
+
 }
 
 
 // ==============================
-// OPEN DOCUMENT
+// OPEN FULL DOCUMENT
 // ==============================
 
 const docCards = document.querySelectorAll(".doc-card");
@@ -118,18 +123,25 @@ console.log("Documents found:", docCards.length);
 
 docCards.forEach((card) => {
 
-    card.addEventListener("click", () => {
+    card.addEventListener("click", function (event) {
 
-        const docPath = card.getAttribute("data-doc");
+        event.preventDefault();
 
-        console.log("Opening document:", docPath);
+        const docPath = this.getAttribute("data-doc");
 
         if (!docPath) {
-            console.error("❌ No data-doc found on this card!");
+            console.error("❌ No data-doc found!");
             return;
         }
 
-        window.open(docPath, "_blank");
+        console.log("Opening document:", docPath);
+
+        window.open(
+            docPath,
+            "_blank",
+            "noopener,noreferrer"
+        );
+
     });
 
 });
