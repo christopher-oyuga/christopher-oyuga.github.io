@@ -81,12 +81,8 @@ Web Animation
 
 <p align="center">
   <img
-    src="./output/github-contribution-grid-snake.svg#gh-light-mode-only"
-    alt="GitHub Contribution Snake - Light Mode"
-  />
-  <img
-    src="./output/github-contribution-grid-snake.svg#gh-dark-mode-only"
-    alt="GitHub Contribution Snake - Dark Mode"
+    src="./output/github-contribution-grid-snake.svg"
+    alt="GitHub Contribution Snake"
   />
 </p>
 
@@ -96,6 +92,7 @@ Web Animation
     alt="GitHub Contribution Snake Animation"
   />
 </p>
+
 
 ---
 ### 👀 Profile Visitors
