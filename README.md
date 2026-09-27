@@ -1,23 +1,58 @@
 # 👋 Hi, I'm Christopher Oyuga
 
-💻 **Frontend Web Developer.** | 🌐 **Aspiring Full-Stack Engineer.** | 🎨 **Graphic Designer.** | 🎥 **Content Creator.**  
+💻 **Frontend Web Developer.** | 🌐 **Aspiring Full-Stack Engineer.** | 🎨 **Graphic Designer.** | 🎥 **IT Specialist.**  
 
-I enjoy turning ideas into interactive experiences, building modern web applications, and creating visually engaging content.  
+I’m an *IT Specialist* and *Frontend Developer* passionate about *technology*, *web development*, and *creating practical digital solutions*. I enjoy combining technical problem-solving with creative design to build modern, responsive, and user-friendly experiences.
+
+
 
 ---
 
 ## 🚀 About Me
-- 🔭 Currently working on: My Portfolio Website  
-- 🌱 Learning: React, Node.js, APIs  
-- 👯 Looking to collaborate on: Open-source or exciting frontend projects  
-- 💬 Ask me about: HTML, CSS, JavaScript, Web Design, Animation, Graphic Design (Canva, Photoshop…)  
-- 📫 Reach me: [Email](mailto:christopheroyga@gmail.com) | [LinkedIn](https://lnkd.in/eA2AS8gb) | [Portfolio](https://christopherportfolio-dun.vercel.app)  
-- ⚡ Fun fact: I enjoy solving coding challenges and exploring new web technologies  
+- 🔭 **Currently working on:** Building and improving my personal portfolio and practical web projects.
+- 💼 **Currently working at:** **Angata Sugar Mill ltd** as an *IT Specialist / IT Administrator.*
+- 🖥️ **IT Focus:** IT administration, technical support, systems management, networking, and troubleshooting.
+- 🌱 **Currently learning:** React, Node.js, REST APIs, databases, and full-stack development.  
+- 👯 **Looking to collaborate on:** Open-source projects, web applications, IT solutions, and exciting technology projects.  
+- 💬 **Ask me about:** Web development, IT support, IT administration, JavaScript, responsive design, Git/GitHub, and graphic design.
+- ⚡ **Fun fact:** I enjoy solving technical problems, building useful digital solutions, and continuously exploring new technologies.  
+- 📫 **Reach me:** *[Email](mailto:christopheroyga@gmail.com) | [LinkedIn](https://lnkd.in/eA2AS8gb) | [Portfolio](https://christopher-oyuga.github.io)* 
+   
 
 ---
 
 ## 🛠️ Skills
-HTML5 | CSS3 | JavaScript | Git | GitHub | React | Canva | Photoshop | Animation...
+
+💻 **Web Development Tools.**  
+HTML5 | CSS3 | JavaScript | Git | GitHub | React | Canva | Photoshop | Animation..
+
+
+🖥️ **IT & Systems**  
+IT Administration.  
+
+Technical Support & Troubleshooting.  
+
+Hardware & Software Support.  
+
+Systems Administration.  
+
+Network Support & Configuration.  
+
+User Account & Access Management.  
+
+System Maintenance & Monitoring.
+
+🎨 **Design & Creative.**  
+Responsive Web Design
+
+Graphic Design
+
+Digital Content Design
+
+Web Animation
+
+🌐 **Currently Exploring.**
+*Node.js · REST APIs · Databases · React · Full-Stack Development · Cloud Technologies.*
 
 ---
 
@@ -33,7 +68,7 @@ HTML5 | CSS3 | JavaScript | Git | GitHub | React | Canva | Photoshop | Animation
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin&logoColor=white)](https://linkedin.com/in/christopher-oyuga)
 [![Portfolio](https://img.shields.io/badge/Portfolio-View-green?logo=web&logoColor=white)](https://christopherportfolio-dun.vercel.app)
 
-## 📊 GitHub Stats
+## 📊 GitHub Status.
 ---
 
 ### 🔥 Streak Stats
@@ -42,16 +77,25 @@ HTML5 | CSS3 | JavaScript | Git | GitHub | React | Canva | Photoshop | Animation
 ---
 
 
+## 🐍 GitHub Contribution Snake
 
-### 🐍 Contribution Snake
-![Snake animation](./output/github-contribution-grid-snake.svg)
-### 🐍 Contribution Snake
+<p align="center">
+  <img
+    src="./output/github-contribution-grid-snake.svg#gh-light-mode-only"
+    alt="GitHub Contribution Snake - Light Mode"
+  />
+  <img
+    src="./output/github-contribution-grid-snake.svg#gh-dark-mode-only"
+    alt="GitHub Contribution Snake - Dark Mode"
+  />
+</p>
 
-![GitHub Snake Light](output/github-contribution-grid-snake.svg#gh-light-mode-only)
-![GitHub Snake Dark](output/github-contribution-grid-snake.svg#gh-dark-mode-only)
-
-<!-- Optional: GIF / PNG versions -->
-![GitHub Snake Animation](output/github-contribution-grid-snake.gif)
+<p align="center">
+  <img
+    src="./output/github-contribution-grid-snake.gif"
+    alt="GitHub Contribution Snake Animation"
+  />
+</p>
 
 ---
 ### 👀 Profile Visitors
