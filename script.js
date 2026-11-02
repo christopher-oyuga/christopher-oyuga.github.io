@@ -77,9 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
 const docToggleBtn = document.getElementById("docToggle");
 const docContainer = document.getElementById("docContainer");
 
-console.log("Toggle button:", docToggleBtn);
-console.log("Document container:", docContainer);
-
 if (docToggleBtn && docContainer) {
 
     docToggleBtn.addEventListener("click", function (event) {
@@ -91,24 +88,24 @@ if (docToggleBtn && docContainer) {
 
         if (isOpen) {
 
+            // Load PDF previews only when Documents is opened
+            document.querySelectorAll(".doc-preview iframe[data-src]").forEach((frame) => {
+                if (!frame.hasAttribute("src")) {
+                    frame.src = frame.dataset.src;
+                }
+            });
+
             docToggleBtn.style.transform = "rotate(180deg)";
             docToggleBtn.classList.add("active");
-
-            console.log("Documents opened ✅");
 
         } else {
 
             docToggleBtn.style.transform = "rotate(0deg)";
             docToggleBtn.classList.remove("active");
 
-            console.log("Documents closed ✅");
         }
 
     });
-
-} else {
-
-    console.error("❌ docToggle or docContainer not found!");
 
 }
 
@@ -119,8 +116,6 @@ if (docToggleBtn && docContainer) {
 
 const docCards = document.querySelectorAll(".doc-card");
 
-console.log("Documents found:", docCards.length);
-
 docCards.forEach((card) => {
 
     card.addEventListener("click", function (event) {
@@ -129,23 +124,13 @@ docCards.forEach((card) => {
 
         const docPath = this.getAttribute("data-doc");
 
-        if (!docPath) {
-            console.error("❌ No data-doc found!");
-            return;
+        if (docPath) {
+            window.open(encodeURI(docPath), "_blank", "noopener,noreferrer");
         }
-
-        console.log("Opening document:", docPath);
-
-        window.open(
-            docPath,
-            "_blank",
-            "noopener,noreferrer"
-        );
 
     });
 
 });
-
 
   // ==============================
 // PTf BUTTON
@@ -214,17 +199,25 @@ if (cvBtn) {
 let currentIndex = 0;
 const images = [
   "img/web6-1.jpg",
-  "img/web6-2.jpg",
+  "img/web6-2.png",
   "img/web6-3.png",
-  "img/web6-4.jpg",
+  "img/web6-4.png",
   "img/web6-5.jpg",
   "img/web6-6.png",
   "img/web6-7.jpg",
-  "img/web6-8.jpg",
+  "img/web6-8.png",
   "img/web6-9.jpg",
   "img/web6-10.png",
-  "img/web6-11.jpg"
+  "img/web6-11.jpg",
+  "img/web6-12.png"
 ];
+
+// Preload gallery images
+images.forEach((src) => {
+    const img = new Image();
+    img.src = src;
+});
+
 
 function openGallery() {
   document.getElementById("galleryModal").style.display = "block";
